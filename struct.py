@@ -21,8 +21,10 @@ for line in metadata:
 with open('param_ids.h', 'w') as f:
     f.write("#include <cam_intf.h>\n\n")
     f.write("#define FOR_EVERY_PARAM_ID(MACRO) \\\n")
-
+    s='CAM_INTF_META_LENS_FOCUS_STATE'
     for item in metalist:
+        if(item.find(s)>=0):
+            continue
         f.write("%s \\\n" % item)
 
 f.closed
